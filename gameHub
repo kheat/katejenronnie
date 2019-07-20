@@ -1,4 +1,11 @@
 #create that actual hub on this page. 
-in=input("What game would you like to play?"
-  if in == "Hangman"
+print("What game would you like to play?"
+println("Hangman")
+println("Word Search")
+println("NBA Simulation")
+in = input()
+if (in == "Hangman"):
   
+if (in == "Word Search"):
+
+if (in == "NBA Simulation"):
