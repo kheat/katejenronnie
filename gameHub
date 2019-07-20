@@ -5,6 +5,8 @@ println("Word Search")
 println("NBA Simulation")
 in = input()
 if (in == "Hangman"):
+  import hangman.py
+  hangman.py.open 
   
 if (in == "Word Search"):
 
