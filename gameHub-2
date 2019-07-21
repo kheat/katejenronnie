@@ -1,3 +1,41 @@
+import random
+
+import random
+
+class hangman:
+    def __init__(self):
+        self.d=0
+
+    def playgame(self):
+        wordbank=["awkward","klutz","kate","bagpipes", "banjo", "croquet", "crypt", "fishhook", "flashdrive","ivory","haiku","dwarves","gazebo","gypsy","haphazard","hyphen", "jazzy", "kayak", "kiosk", "jiffy", "jinx", "jukebox", "mystify", "oxygen", "pajama", "phlegm", "pixel", "rhythmic", "rogue", "sphinx", "swivel", "twelfth", "unzip", "hello", "yacht", "zealous", "zombie"]
+        word= random.randrange(0, len(wordbank)-1)
+        points = 100
+        eachlet = points/len(str(word))
+        blankarr=[] #underscore
+        for letter in str(word):
+            print("_ ")
+            blankarr.append("_ ")
+        print("Your starting score is 100")
+        while blankarr.index("_ ")>-1:
+            let =  input("Guess a letter!  ") #letter they guess = let
+            let.lower() #makes all input in lower case
+            index = word.find(let)  #location of letter they find in the word (-1 if not found)
+            if index==-1:
+                points=points-eachlet
+            else:
+                for i in (0,len(word)):
+                    if word[i] == let:
+                        blankarr[i]=word[i]
+        print("Good job! You guessed the word!\n")
+        print("Do you want to play again? Respond: \"Y\" for yes or \"N\" for no:    \n")
+        again = input(" ")
+        if again == "Y":
+            playgame()
+        if again == "N":
+            print("Thanks for playing!\n")
+
+
+
 print("Welcome to JKR Games! \n")
 print(" _ _ _ _      ___      ")
 print("|_|_|_|_|    |   |     ")
@@ -77,3 +115,9 @@ if gameChoice == "wordsearch":
                 print("\t Word already found, try again.\n")
             else:
                 print("\t Word not in puzzle, try again.\n")
+               
+if gameChoice == "hangman":
+    if __name__ == "__main__":
+        h = hangman()
+        h.playgame()
+
