@@ -1,7 +1,4 @@
-import random
-
-import random
-
+import random, numpy
 
 class hangman:
     def __init__(self):
