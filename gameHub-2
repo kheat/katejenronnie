@@ -11,7 +11,6 @@ class hangman:
         points = 100
         eachlet = points/len(str(word))+5
         blankarr=[] #underscore
-        print('word')
         for letter in str(word):
             print("_ ", end="")
             blankarr.append("_ ")
