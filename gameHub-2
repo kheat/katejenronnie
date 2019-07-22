@@ -51,13 +51,13 @@ class hangman:
 if __name__ == "__main__":
 
     print("Welcome to JKR Games! \n")
-    print(" _ _ _ _      ___         ____   ")
-    print("|_|_|_|_|    |   |      /      \ ")
-    print("|_|_|_|_|    |   0     |        |")
-    print("|_|_|_|_|    |  \|/    |        |")
-    print("|_|_|_|_|   _|_ / \     \ ____ / ")
-    print(" Word         Hang         NBA   ")
-    print(" Search       Man              \n")
+    print(" _ _ _ _      ___       _______ ")
+    print("|_|_|_|_|    |   |     |   _   |")
+    print("|_|_|_|_|    |   0     |__\_/__|")
+    print("|_|_|_|_|    |  \|/        |    ")
+    print("|_|_|_|_|   _|_ / \       /|\   ")
+    print(" Word         Hang      NBA    ")
+    print(" Search       Man       Simulator\n")
 
     gameInput = input("Please type a selection: ")
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     gameChoice = lowerGameInput.replace(" ", "")
 
-    print(gameChoice)
+    print("Welcome to ", gameChoice, "!")
 
     if gameChoice == "wordsearch":
 
