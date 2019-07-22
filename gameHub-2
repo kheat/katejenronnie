@@ -2,6 +2,7 @@ import random
 
 import random
 
+
 class hangman:
     def __init__(self):
         self.d=0
@@ -9,41 +10,57 @@ class hangman:
     def playgame(self):
         wordbank=["awkward","klutz","kate","bagpipes", "banjo", "croquet", "crypt", "fishhook", "flashdrive","ivory","haiku","dwarves","gazebo","gypsy","haphazard","hyphen", "jazzy", "kayak", "kiosk", "jiffy", "jinx", "jukebox", "mystify", "oxygen", "pajama", "phlegm", "pixel", "rhythmic", "rogue", "sphinx", "swivel", "twelfth", "unzip", "hello", "yacht", "zealous", "zombie"]
         word= random.randrange(0, len(wordbank)-1)
+        word = wordbank[word]
         points = 100
-        eachlet = points/len(str(word))
+        eachlet = points/len(str(word))+5
         blankarr=[] #underscore
+        print('word')
         for letter in str(word):
-            print("_ ")
+            print("_ ", end="")
             blankarr.append("_ ")
+
         print("Your starting score is 100")
-        while blankarr.index("_ ")>-1:
+        while str("_ ") in blankarr:
+            print('Current word to be guessed: ', blankarr)
             let =  input("Guess a letter!  ") #letter they guess = let
-            let.lower() #makes all input in lower case
-            index = word.find(let)  #location of letter they find in the word (-1 if not found)
-            if index==-1:
+            let = let.lower() #makes all input in lower case
+            indexx = str(word).find(let)  #location of letter they find in the word (-1 if not found)
+
+            if indexx==-1:
+                print('Sorry, ', let, ' is not correct :( ')
                 points=points-eachlet
             else:
-                for i in (0,len(word)):
-                    if word[i] == let:
-                        blankarr[i]=word[i]
+                print("Nice! Good guess! ")
+                lettercount = 0
+                for i in range(0,len(word)):
+                    if let == word[i]:
+                        lettercount+=1
+                for ind, val in enumerate(word):
+                    if val==let:
+                        blankarr[ind]=word[ind]
+
+
         print("Good job! You guessed the word!\n")
+        print('Your score: ', points)
         print("Do you want to play again? Respond: \"Y\" for yes or \"N\" for no:    \n")
         again = input(" ")
         if again == "Y":
-            playgame()
+            newgame = hangman()
+            newgame.playgame()
         if again == "N":
             print("Thanks for playing!\n")
+    
 
 if __name__ == "__main__":
 
     print("Welcome to JKR Games! \n")
-    print(" _ _ _ _      ___       _______ ")
-    print("|_|_|_|_|    |   |     |   _   |")
-    print("|_|_|_|_|    |   0     |__\_/__|")
-    print("|_|_|_|_|    |  \|/        |    ")
-    print("|_|_|_|_|   _|_ / \       /|\   ")
-    print(" Word         Hang      NBA    ")
-    print(" Search       Man       Simulator\n")
+    print(" _ _ _ _      ___         ____   ")
+    print("|_|_|_|_|    |   |      /      \ ")
+    print("|_|_|_|_|    |   0     |        |")
+    print("|_|_|_|_|    |  \|/    |        |")
+    print("|_|_|_|_|   _|_ / \     \ ____ / ")
+    print(" Word         Hang         NBA   ")
+    print(" Search       Man              \n")
 
     gameInput = input("Please type a selection: ")
 
@@ -51,7 +68,7 @@ if __name__ == "__main__":
 
     gameChoice = lowerGameInput.replace(" ", "")
 
-    print("Welcome to ", gameChoice, "!")
+    print(gameChoice)
 
     if gameChoice == "wordsearch":
 
@@ -153,7 +170,7 @@ if __name__ == "__main__":
             h = hangman()
             h.playgame()
 
-    if gameChoice == "nba" or "nbasimulator" or "nbasim":
+    if gameChoice == "nba":
         print("Who do you want to play as? Dwyane Wade, Lebron James, or Steph Curry?")
         player = input()
         i = 0
